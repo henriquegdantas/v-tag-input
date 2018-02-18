@@ -1,5 +1,6 @@
 <template lang="html">
-  <input class="v-tag-input" type="text" v-model="editableValue">
+  <input v-if="!isTextarea" class="v-tag-input" type="text" v-model="editableValue">
+  <textarea v-if="isTextarea" class="v-tag-input" type="text" v-model="editableValue">
 </template>
 
 <script>
@@ -13,6 +14,10 @@ export default {
     separator: {
       type: String,
       default: ' '
+    },
+    isTextarea: {
+      type: Boolean,
+      default: false,
     }
   },
   computed: {
